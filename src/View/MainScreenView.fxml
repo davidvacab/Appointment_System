@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
+    <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Tab fx:id="appointmentsTab" closable="false" text="%tab.appointments">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="appointmentsAnchor" prefHeight="662.6666666666666" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <TabPane fx:id="appointmentsTabPane" prefHeight="502.0" prefWidth="1000.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" tabMinWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <Tab closable="false" text="%tab.all">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <GridPane prefHeight="472.6666666666667" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                 <AnchorPane>
+                                     <TextField fx:id="appointmentsSearchBar" layoutX="562.0" layoutY="6.0" prefHeight="38.0" prefWidth="219.0" promptText="%field.search" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="6.0" />
+                                     <Label layoutX="29.0" layoutY="6.0" prefHeight="38.0" prefWidth="297.0" text="%tab.appointments" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="671.0" AnchorPane.topAnchor="6.0">
+                                         <font>
+                                             <Font name="System Bold" size="18.0" />
+                                         </font>
+                                     </Label>
+                                     <Button layoutX="437.0" layoutY="5.0" mnemonicParsing="false" onAction="#onAppointmentsRefreshButton" prefHeight="40.0" prefWidth="90.0" text="%button.refresh" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="437.0" AnchorPane.rightAnchor="474.0" AnchorPane.topAnchor="5.0">
+                                         <font>
+                                             <Font size="18.0" />
+                                         </font>
+                                     </Button>
+                                 </AnchorPane>
+                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                          <TableView fx:id="appointmentsTable" prefHeight="472.6666666666667" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                              <columns>
+                                                  <TableColumn fx:id="appointmentIDColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="%column.id" />
+                                                  <TableColumn fx:id="appointmentTitleColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="%column.title" />
+                                                  <TableColumn fx:id="appointmentDescriptionColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="170.0" prefWidth="-1.0" text="%column.description" />
+                                                  <TableColumn fx:id="appointmentLocationColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="-1.0" text="%column.location" />
+                                                  <TableColumn fx:id="appointmentContactColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="80.0" prefWidth="-1.0" text="Contact" />
+                                                  <TableColumn fx:id="appointmentTypeColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="-1.0" text="%column.type" />
+                                                  <TableColumn fx:id="appointmentStartDateTimeColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="-1.0" text="%column.startTime" />
+                                                  <TableColumn fx:id="appointmentEndDateTimeColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="-1.0" text="%column.endTime" />
+                                                  <TableColumn fx:id="appointmentCustomerIDColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="80.0" prefWidth="-1.0" text="%column.customerID" />
+                                              </columns>
+                                          </TableView>
+                                      </AnchorPane>
+                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                          <ButtonBar buttonMinWidth="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="80.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                              <buttons>
+                                                  <Button mnemonicParsing="false" onAction="#onAddAppointmentButton" text="%button.add">
+                                                      <font>
+                                                          <Font size="18.0" />
+                                                      </font>
+                                                  </Button>
+                                                  <Button fx:id="updateAppointmentButton" mnemonicParsing="false" onAction="#onUpdateAppointmentButton" text="%button.update">
+                                                      <font>
+                                                          <Font size="18.0" />
+                                                      </font>
+                                                  </Button>
+                                                  <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#onDeleteAppointmentButton" text="%button.delete">
+                                                      <font>
+                                                          <Font size="18.0" />
+                                                      </font>
+                                                  </Button>
+                                              </buttons>
+                                              <padding>
+                                                  <Insets left="10.0" right="10.0" />
+                                              </padding>
+                                          </ButtonBar>
+                                      </AnchorPane>
+                                  </GridPane>
+                              </AnchorPane>
+                          </Tab>
+                          <Tab closable="false" text="%tab.month">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <TableView fx:id="monthViewTable" fixedCellSize="103.0" layoutX="200.0" layoutY="76.0" onMousePressed="#onMonthSelection" prefHeight="552.6666666666666" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="monthSundayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.sunday" />
+                            <TableColumn fx:id="monthMondayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.monday" />
+                              <TableColumn fx:id="monthTuesdayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.tuesday" />
+                              <TableColumn fx:id="monthWednesdayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.wednesday" />
+                              <TableColumn fx:id="monthThursdayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.thursday" />
+                              <TableColumn fx:id="monthFridayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.friday" />
+                              <TableColumn fx:id="monthSaturdayColumn" editable="false" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" resizable="false" sortable="false" text="%column.saturday" />
+                          </columns>
+                        </TableView>
+                                  <ButtonBar buttonMinWidth="25.0" layoutX="768.0" layoutY="595.0" prefHeight="35.0" prefWidth="229.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="768.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="595.0">
+                                      <buttons>
+                                          <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onMonthPreviousButton" prefHeight="25.0" prefWidth="25.0" text="&lt;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                                        <Label fx:id="monthViewMonthName" alignment="CENTER" text="SEPTEMBER 2020" textAlignment="RIGHT">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                                          <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onMonthNextButton" prefWidth="25.0" text="&gt;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                                      </buttons>
+                                      <padding>
+                                          <Insets right="5.0" />
+                                      </padding>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                                  </ButtonBar>
+                              </AnchorPane>
+                          </Tab>
+                          <Tab closable="false" text="%tab.week">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <TableView fx:id="weekViewTable" layoutX="119.0" layoutY="36.0" onMousePressed="#onWeekSelection" prefHeight="472.6666666666667" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="weekTimeColumn" editable="false" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" sortable="false" text="%column.time" />
+                            <TableColumn fx:id="weekSundayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Sunday" />
+                              <TableColumn fx:id="weekMondayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Monday" />
+                              <TableColumn fx:id="weekTuesdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Tuesday" />
+                              <TableColumn fx:id="weekWednesdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Wednesday" />
+                              <TableColumn fx:id="weekThursdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Thursday" />
+                              <TableColumn fx:id="weekFridayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Friday" />
+                              <TableColumn fx:id="weekSaturdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Saturday" />
+                          </columns>
+                        </TableView>
+                                  <ButtonBar buttonMinWidth="25.0" layoutX="660.0" layoutY="592.0" prefHeight="41.0" prefWidth="339.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="660.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="592.0">
+                                      <buttons>
+                                          <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onWeekPreviousButton" prefWidth="25.0" text="&lt;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="weekViewMonthName" alignment="CENTER" text="SEPTEMBER-SEPTEMBER 2020">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                                          <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onWeekNextButton" prefWidth="25.0" text="&gt;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                                      </buttons>
+                                      <padding>
+                                          <Insets right="5.0" />
+                                      </padding>
+                                  </ButtonBar>
+                              </AnchorPane>
+                          </Tab>
+                      </TabPane>
+                </AnchorPane>
+            <ProgressIndicator fx:id="appLoadingAnimation" layoutX="412.0" layoutY="276.0" prefHeight="141.0" prefWidth="179.0" visible="false" AnchorPane.bottomAnchor="246.0" AnchorPane.leftAnchor="412.0" AnchorPane.rightAnchor="409.0" AnchorPane.topAnchor="276.0" />
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="customersTab" closable="false" text="%tab.customers">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="customersAnchor" prefHeight="662.6666666666666" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <GridPane prefHeight="662.2857142857143" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <AnchorPane prefHeight="36.0" prefWidth="1000.0">
+                            <TextField fx:id="customersSearchBar" layoutX="562.0" layoutY="6.0" prefHeight="38.0" prefWidth="219.0" promptText="%field.search" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="6.0" />
+                            <Label layoutX="28.0" layoutY="6.0" prefHeight="38.0" prefWidth="297.0" text="%tab.customers" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="672.0" AnchorPane.topAnchor="6.0">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="444.0" layoutY="5.0" mnemonicParsing="false" onAction="#onCustomersRefreshButton" prefHeight="40.0" prefWidth="90.0" text="%button.refresh" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="444.0" AnchorPane.rightAnchor="467.0" AnchorPane.topAnchor="5.0">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Button>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <TableView fx:id="customersTable" prefHeight="440.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                    <TableColumn fx:id="customerIDColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="%column.id" />
+                                    <TableColumn fx:id="customerNameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="170.0" prefWidth="-1.0" text="%column.name" />
+                                    <TableColumn fx:id="customerAddressColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="280.0" prefWidth="-1.0" text="%column.address" />
+                                    <TableColumn fx:id="customerPostalCodeColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="80.0" prefWidth="-1.0" text="%column.postal" />
+                                    <TableColumn fx:id="customerPhoneColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="-1.0" text="%column.phone" />
+                                    <TableColumn fx:id="customerDivisionColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="180.0" prefWidth="-1.0" text="%column.division" />
+                                    <TableColumn fx:id="customerCountryColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="80.0" prefWidth="-1.0" text="%column.country" />
+                                </columns>
+                            </TableView>
+                        </AnchorPane>
+                        <AnchorPane GridPane.rowIndex="2">
+                            <ButtonBar buttonMinWidth="120.0" layoutX="8.0" layoutY="19.0" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <buttons>
+                                    <Button mnemonicParsing="false" onAction="#onAddCustomerButton" text="%button.add">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="updateCustomerButton" mnemonicParsing="false" onAction="#onUpdateCustomerButton" text="%button.update">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Button>
+                                    <Button fx:id="deleteCustomerButton" mnemonicParsing="false" onAction="#onDeleteCustomerButton" text="%button.delete">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Button>
+                                </buttons>
+                                <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                </padding>
+                            </ButtonBar>
+                        </AnchorPane>
+                    </GridPane>
+                </AnchorPane>
+            <ProgressIndicator fx:id="customersProgressIndicator" layoutX="435.0" layoutY="268.0" prefHeight="150.0" prefWidth="135.0" visible="false" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="435.0" AnchorPane.rightAnchor="430.0" AnchorPane.topAnchor="268.0" />
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="reportsTab" closable="false" text="%tab.reports">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="reportsAnchor" prefHeight="663.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <TabPane prefHeight="663.0" prefWidth="1000.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" tabMinWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Tab closable="false" text="%tab.type">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <TableView fx:id="typeReportTable" fixedCellSize="40.0" layoutX="92.0" layoutY="148.0" onMousePressed="#onTypeReportSelection" prefHeight="633.3333333333334" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="typeColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="185.0" prefWidth="-1.0" text="%column.type" />
+                                        <TableColumn fx:id="typeJanuaryColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.january" />
+                                        <TableColumn fx:id="typeFebruaryColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.february" />
+                                        <TableColumn fx:id="typeMarchColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.march" />
+                                        <TableColumn fx:id="typeAprilColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.april" />
+                                        <TableColumn fx:id="typeMayColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.may" />
+                                        <TableColumn fx:id="typeJuneColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.june" />
+                                        <TableColumn fx:id="typeJulyColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.july" />
+                                        <TableColumn fx:id="typeAugustColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.august" />
+                                        <TableColumn fx:id="typeSeptemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.september" />
+                                        <TableColumn fx:id="typeOctoberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.october" />
+                                        <TableColumn fx:id="typeNovemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.november" />
+                                        <TableColumn fx:id="typeDecemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.december" />
+                                    </columns>
+                                </TableView>
+                                <ButtonBar buttonMinWidth="25.0" layoutX="859.0" layoutY="594.0" prefHeight="40.0" prefWidth="141.0">
+                                    <buttons>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onTypePreviousButton" prefWidth="25.0" text="&lt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="typeYearLabel" alignment="CENTER" text="2020">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onTypeNextButton" prefWidth="25.0" text="&gt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </buttons>
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </ButtonBar>
+                            </AnchorPane>
+                        </Tab>
+                        <Tab closable="false" text="%tab.contact">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <GridPane layoutX="235.0" layoutY="164.0" prefHeight="633.3333333333334" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                        <ComboBox fx:id="contactComboBox" layoutX="247.0" layoutY="17.0" minHeight="35.0" prefHeight="35.0" prefWidth="150.0" promptText="%comboBox.select" AnchorPane.bottomAnchor="17.666666666666668" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="603.0" AnchorPane.topAnchor="17.0" />
+                                        <Label fx:id="contactLabel" layoutX="30.0" layoutY="21.0" prefHeight="27.0" prefWidth="187.0" text="CONTACT" AnchorPane.bottomAnchor="21.666666666666668" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="782.6666666666666" AnchorPane.topAnchor="21.0">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                              <Button layoutX="473.0" layoutY="15.0" mnemonicParsing="false" onAction="#onContactsRefreshButton" prefHeight="40.0" prefWidth="90.0" text="%button.refresh" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="473.0" AnchorPane.rightAnchor="407.66666666666674" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                        <TableView fx:id="contactReportTable" layoutX="174.0" layoutY="66.0" onMousePressed="#onContactReportSelection" prefHeight="573.3333333333334" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn fx:id="contactTimeColumn" editable="false" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" sortable="false" text="%column.time" />
+                                                <TableColumn fx:id="contactSundayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Sunday" />
+                                                <TableColumn fx:id="contactMondayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Monday" />
+                                                <TableColumn fx:id="contactTuesdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Tuesday" />
+                                                <TableColumn fx:id="contactWednesdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Wednesday" />
+                                                <TableColumn fx:id="contactThursdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Thursday" />
+                                                <TableColumn fx:id="contactFridayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Friday" />
+                                                <TableColumn fx:id="contactSaturdayColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="130.0" sortable="false" text="Saturday" />
+                                            </columns>
+                                        </TableView>
+                                    </AnchorPane>
+                                </GridPane>
+                                <ButtonBar buttonMinWidth="25.0" layoutX="678.0" layoutY="600.0" prefHeight="33.0" prefWidth="322.0">
+                                    <buttons>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onContactPreviousButton" prefWidth="25.0" text="&lt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="contactReportMonthLabel" alignment="CENTER" text="SEPTEMBER-SEPTEMBER 2020">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onContactNextButton" prefWidth="25.0" text="&gt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </buttons>
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </ButtonBar>
+                            </AnchorPane>
+                        </Tab>
+                        <Tab closable="false" text="%tab.location">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <TableView fx:id="locationReportTable" fixedCellSize="40.0" onMousePressed="#onLocationReportSelection" prefHeight="633.3333333333334" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="locationColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="185.0" prefWidth="-1.0" text="%column.location" />
+                                        <TableColumn fx:id="locationJanuaryColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.january" />
+                                        <TableColumn fx:id="locationFebruaryColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.february" />
+                                        <TableColumn fx:id="locationMarchColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.march" />
+                                        <TableColumn fx:id="locationAprilColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.april" />
+                                        <TableColumn fx:id="locationMayColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.may" />
+                                        <TableColumn fx:id="locationJuneColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.june" />
+                                        <TableColumn fx:id="locationJulyColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.july" />
+                                        <TableColumn fx:id="locationAugustColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.august" />
+                                        <TableColumn fx:id="locationSeptemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.september" />
+                                        <TableColumn fx:id="locationOctoberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.october" />
+                                        <TableColumn fx:id="locationNovemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.november" />
+                                        <TableColumn fx:id="locationDecemberColumn" editable="false" maxWidth="67.0" minWidth="67.0" prefWidth="67.0" resizable="false" text="%column.december" />
+                                    </columns>
+                                </TableView>
+                                <ButtonBar buttonMinWidth="25.0" layoutX="798.0" layoutY="595.0" prefHeight="35.0" prefWidth="202.0">
+                                    <buttons>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onLocationPreviousButton" prefWidth="25.0" text="&lt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="locationYearLabel" alignment="CENTER" text="2020">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button maxWidth="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onLocationNextButton" prefWidth="25.0" text="&gt;">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </buttons>
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </ButtonBar>
+                            </AnchorPane>
+                        </Tab>
+                    </TabPane>
+                </AnchorPane>
+                <ProgressIndicator fx:id="reportsProgressIndicator" layoutX="435.0" layoutY="268.0" prefHeight="150.0" prefWidth="135.0" visible="false" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="435.0" AnchorPane.rightAnchor="430.0" AnchorPane.topAnchor="268.0" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</AnchorPane>
